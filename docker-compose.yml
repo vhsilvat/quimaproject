@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+
+  postgres:
+    image: postgres:latest
+    hostname: quima-db
+    container_name: quima-db
+    restart: always
+    environment:
+      - POSTGRES_USER=quima
+      - POSTGRES_PASSWORD=project
+      - POSTGRES_DB=productdb
+    expose:
+      - 5432
+    ports:
+      - 5432:5432
+    volumes:
+      - ./database/data:/data/postgres
+      - ./database/table_schema.sql:/docker-entrypoint-initdb.d/table_schema.sql
+
+  restapi:
+    build: quimaproject
+    container_name: quima-api
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+
+  angularfront:
+    build: quimafront
+    container_name: quima-front
+    ports:
+      - 4200:4200
+    depends_on:
+      - restapi

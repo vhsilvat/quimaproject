@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:latest
+    hostname: quima-db
+    container_name: quima-db
+    restart: always
+    environment:
+      - POSTGRES_USER=quima
+      - POSTGRES_PASSWORD=project
+      - POSTGRES_DB=productdb    
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/data/postgres
+      - ./table_schema.sql:/docker-entrypoint-initdb.d/table_schema.sql

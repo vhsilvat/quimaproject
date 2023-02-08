@@ -1,0 +1,68 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>View Product</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/Home" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i> &nbsp;Back</a>
+          </div>
+        </div>
+      </div>
+      <table class="table table-striped table-hover table-bordered table-content">
+        <tbody>
+        <tr>
+          <td>
+            <label><b>ID</b></label>
+          </td>
+          <td>
+            <span>{{ productDetail.id }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label><b>Product Name</b></label>
+          </td>
+          <td>
+            <span>{{ productDetail.name }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label><b>Price</b></label>
+          </td>
+          <td>
+            <span>{{ productDetail.price }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label><b>Category</b></label>
+          </td>
+          <td>
+            <span>{{ productDetail.category.name }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label><b>Category Path</b></label>
+          </td>
+          <td>
+            <span>{{ productDetail.categoryPath }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label><b>Available</b></label>
+          </td>
+          <td>
+            <span>{{ productDetail.available }}</span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

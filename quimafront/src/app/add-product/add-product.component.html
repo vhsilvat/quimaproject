@@ -1,0 +1,94 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>Add Product</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/Home" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i>
+              &nbsp;Back</a>
+          </div>
+        </div>
+      </div>
+      <form #ProductAddForm="ngForm">
+        <div class="table-content">
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="name" class="p-t-b-10">Name<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="name" required maxlength="255"
+                     [(ngModel)]="addProductForm.name" name="name" #name="ngModel">
+              <div *ngIf="name.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!name.errors['required']">
+                  Name is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="price" class="p-t-b-10">Price<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="number" class="form-control" id="price" required maxlength="255"
+                     [(ngModel)]="addProductForm.price" name="price" #price="ngModel">
+              <div *ngIf="price.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!price.errors['required']">
+                  Price is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="description" class="p-t-b-10">Description<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="description" required maxlength="255"
+                     [(ngModel)]="addProductForm.description" name="description" #description="ngModel">
+              <div *ngIf="description.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!description.errors['required']">
+                  Description is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="available" class="p-t-b-10">Availability<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="boolean" class="form-control" id="available" required maxlength="255"
+                     [(ngModel)]="addProductForm.available" name="available" #available="ngModel">
+              <div *ngIf="available.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!available.errors['required']">
+                  Availability is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="category" class="p-t-b-10">Category<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="category" required maxlength="255"
+                     [(ngModel)]="addProductForm.category.name" name="category" #category="ngModel">
+              <div *ngIf="category.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!category.errors['required']">
+                  Category is required
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="table-footer">
+          <button class="btn btn-success" (click)="AddProduct(ProductAddForm.form.valid)">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
